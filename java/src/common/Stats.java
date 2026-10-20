@@ -1,3 +1,4 @@
+package common;
 public class Stats {
     private long comparisons = 0;
     

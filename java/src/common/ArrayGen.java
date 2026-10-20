@@ -1,3 +1,4 @@
+package common;
 import java.util.Random;
 
 public class ArrayGen {
@@ -26,6 +27,14 @@ public class ArrayGen {
         int[] a = new int[n];
         for (int i = 0; i < n; i++) {
             a[i] = n - 1 - i;
+        }
+        return a;
+    }
+        // n values from 1 to maxValue (duplicates allowed)
+    public static int[] randomValues(int n, int maxValue, Random rng) {
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = 1 + rng.nextInt(maxValue);
         }
         return a;
     }

@@ -1,3 +1,7 @@
+package sorting;
+
+import common.ArrayGen;
+import common.Stats;
 import java.io.PrintWriter;
 import java.util.Random;
 

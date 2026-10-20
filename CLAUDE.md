@@ -11,12 +11,38 @@ I'm building this to learn SC2001 algorithms. I write ALL the code myself.
 - Explain every line and flag in any code or command you show me.
 - Use the notation from my Notion notes ("SC2001 – Algorithm Design & Analysis
   (Study Notes)", Project 1, Project 2): V, E, K, n, S, d[v], etc.
+- After each algorithm is finished, update the Progress checklist below and
+  remind me what's left.
+
+## Progress checklist
+
+Quiz 1 is fill-in-the-blank hand-tracing, so each algorithm needs a trace
+mode that matches the lecture's conventions. An algorithm is done when it has:
+implementation · correctness tests · trace output · trace checked against
+my notes/tutorials · committed. Experiments and plots are optional before the quiz.
+
+Quiz 1 algorithms:
+- [x] Insertion sort (experiment + plot done too)
+- [ ] Merge sort
+- [ ] Quicksort (confirm the lecture's pivot rule and partition scheme)
+- [ ] Heaps (confirm 0- vs 1-based indexing)
+- [ ] Heapsort
+- [ ] BFS (confirm neighbour order)
+- [ ] DFS
+- [ ] Dijkstra
+- [ ] Bellman-Ford
+- [ ] Prim
+- [ ] Kruskal (confirm tie-breaking for equal weights)
+- [ ] Union-Find (confirm union by rank/size and path compression)
+
+After the quiz: greedy, DP (LCS, 0/1 knapsack, coin change), string matching.
 
 ## Layout
 
 | Path | Purpose |
 |---|---|
-| `java/src/` | Algorithm implementations and experiment drivers (Java) |
+| `java/src/common/` | Shared helpers: `Stats`, `ArrayGen` (package `common`) |
+| `java/src/<topic>/` | One package per topic, e.g. `sorting/`: algorithms, `Main` (tests), `Trace`, `Experiment` |
 | `java/out/` | Compiled classes (gitignored) |
 | `data/` | CSV output from Java experiments |
 | `python/` | Analysis and plotting scripts (numpy, pandas, matplotlib) |
@@ -29,8 +55,10 @@ Workflow: **Java runs experiments → CSV in `data/` → Python plots into `figu
 Run from the repo root (Windows PowerShell). Python always uses the venv.
 
 ```powershell
-javac -d java/out java/src/*.java
-java -cp java/out Main
+javac -d java/out (Get-ChildItem -Recurse java/src -Filter *.java).FullName
+java -cp java/out sorting.Main          # correctness tests
+java -cp java/out sorting.Trace [seed]  # random trace, length 2-8
+java -cp java/out sorting.Experiment    # writes data/insertion.csv
 .venv/Scripts/python python/<script>.py
 .venv/Scripts/python -m pip install -r python/requirements.txt
 ```

@@ -1,3 +1,6 @@
+package sorting;
+
+import common.Stats;
 import java.util.Arrays;
 
 public class Main {
