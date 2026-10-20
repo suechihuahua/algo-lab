@@ -13,17 +13,24 @@ I'm building this to learn SC2001 algorithms. I write ALL the code myself.
   (Study Notes)", Project 1, Project 2): V, E, K, n, S, d[v], etc.
 - After each algorithm is finished, update the Progress checklist below and
   remind me what's left.
+- Always point out the relevant best coding practices and explain why they
+  exist, so I learn to adopt them. When unsure what current practice is,
+  look it up (official docs first) instead of guessing, and cite the source.
 
 ## Progress checklist
 
 Quiz 1 is fill-in-the-blank hand-tracing, so each algorithm needs a trace
 mode that matches the lecture's conventions. An algorithm is done when it has:
 implementation · correctness tests · trace output · trace checked against
-my notes/tutorials · committed. Experiments and plots are optional before the quiz.
+my notes/tutorials · committed.
+
+**Experiments and plots are paused until my exams are over** (decided 2026-10-20).
+Focus on implementation, correctness tests and tracing. Don't suggest Experiment/CSV/plot
+work until I say exams are done.
 
 Quiz 1 algorithms:
 - [x] Insertion sort (experiment + plot done too)
-- [ ] Merge sort
+- [ ] Merge sort ← in progress (notes: mid = lo + (hi−lo)/2, ties taken from the left)
 - [ ] Quicksort (confirm the lecture's pivot rule and partition scheme)
 - [ ] Heaps (confirm 0- vs 1-based indexing)
 - [ ] Heapsort

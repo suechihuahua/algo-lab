@@ -1,4 +1,10 @@
 {
     "java.project.sourcePaths": ["java/src"],
-    "java.project.outputPath": "java/out"
+    "java.project.outputPath": "java/out",
+
+    "editor.inlineSuggest.enabled": false,
+    "github.copilot.enable": { "*": false },
+    "editor.quickSuggestions": { "other": false, "comments": false, "strings": false },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.inlayHints.enabled": "off"
 }
