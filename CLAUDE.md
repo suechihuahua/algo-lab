@@ -30,8 +30,11 @@ work until I say exams are done.
 
 Quiz 1 algorithms:
 - [x] Insertion sort (experiment + plot done too)
-- [ ] Merge sort ← in progress (notes: mid = lo + (hi−lo)/2, ties taken from the left)
-- [ ] Quicksort (confirm the lecture's pivot rule and partition scheme)
+- [x] Merge sort (mid = lo + (hi−lo)/2, ties taken from the left)
+- [ ] Quicksort ← in progress. Lecture = Strategy 1 (Lomuto): pivot swapped to A[end],
+      j grows the "< p" part, `A[i] < p` strict. Default pivot = last element (matches
+      the notes' worked tree). Recurse on [lo, mid−1] and [mid+1, hi]: the slide's
+      Quicksort(A, mid, end) can infinite-loop.
 - [ ] Heaps (confirm 0- vs 1-based indexing)
 - [ ] Heapsort
 - [ ] BFS (confirm neighbour order)

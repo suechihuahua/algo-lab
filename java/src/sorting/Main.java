@@ -51,4 +51,17 @@ public class Main {
                 name, correct, actual, predicted,
                 actual == predicted ? "OK" : "MISMATCH");
     }
+        static void testQuick(String name, int[] input, long predicted) {
+        int[] expected = input.clone();
+        Arrays.sort(expected);
+
+        Stats stats = new Stats();
+        QuickSort.sort(input, stats);
+
+        boolean correct = Arrays.equals(input, expected);
+        long actual = stats.getComparisons();
+        System.out.printf("quick  %-10s correct=%b comparisons=%d predicted=%d %s%n",
+                name, correct, actual, predicted,
+                actual == predicted ? "OK" : "MISMATCH");
+    }
 }
