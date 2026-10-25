@@ -25,6 +25,15 @@ public class Main {
         
         System.out.println();
 
+        // quicksort
+        testQuick("sorted",     new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 28);
+        testQuick("reverse",    new int[]{8, 7, 6, 5, 4, 3, 2, 1}, 28);
+        testQuick("all equal",  new int[]{4, 4, 4, 4, 4}, 10);
+        testQuick("empty",      new int[]{}, 0);
+        testQuick("single",     new int[]{5}, 0);
+        testQuick("duplicates", new int[]{3, 1, 3, 2, 1}, 8);
+        System.out.println();
+
         // heapsort
         testHeap("sorted",     new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 27);
         testHeap("reverse",    new int[]{8, 7, 6, 5, 4, 3, 2, 1}, 24);

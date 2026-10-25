@@ -35,13 +35,13 @@ Quiz 1 algorithms:
       j grows the "< p" part, `A[i] < p` strict. Default pivot = last element (matches
       the notes' worked tree). Recurse on [lo, mid−1] and [mid+1, hi]: the slide's
       Quicksort(A, mid, end) can infinite-loop.
-- [ ] Heaps ← in progress. Conventions from my notes (chosen 2026-10-25): 0-based,
+- [x] Heaps (insert/extractMax + `heaps.Trace` tracer). Conventions from my notes (chosen 2026-10-25): 0-based,
       children 2i+1 / 2i+2, parent (i−1)/2; max-heap; build bottom-up from n/2−1 down
       to 0 with maxHeapify (sift-down); insert = add at end + sift-up; extract = last
       element to root + maxHeapify. Code lives in `heaps/Heap.java`.
-- [ ] Heapsort (`sorting/HeapSort.java`, uses `heaps.Heap`; build max-heap, then swap
+- [x] Heapsort (`sorting/HeapSort.java`, uses `heaps.Heap`; build max-heap, then swap
       root with end, shrink, maxHeapify(0))
-- [ ] BFS (confirm neighbour order)
+- [ ] BFS ← next (confirm neighbour order)
 - [ ] DFS
 - [ ] Dijkstra
 - [ ] Bellman-Ford

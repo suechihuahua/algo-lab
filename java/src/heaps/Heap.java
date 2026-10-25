@@ -43,6 +43,29 @@ public class Heap {
             }
         }
     }
+    // Adds key at position heapSize and sifts it up. Returns the new heap size.
+    // The array must have room: heapSize < a.length.
+    public static int insert(int[] a, int heapSize, int key, Stats stats) {
+        int i = heapSize;
+        a[i] = key;
+        while (i > 0) {
+            stats.incrementComparisons();
+            if (a[parent(i)] >= a[i]) {
+                break;
+            }
+            swap(a, i, parent(i));
+            i = parent(i);
+        }
+        return heapSize + 1;
+    }
+
+    // Removes and returns the maximum. Afterwards the heap has heapSize - 1 elements.
+    public static int extractMax(int[] a, int heapSize, Stats stats) {
+        int max = a[0];
+        a[0] = a[heapSize - 1];
+        maxHeapify(a, 0, heapSize - 1, stats);
+        return max;
+    }
 
     public static void swap(int[] a, int x, int y) {
         int temp = a[x];
