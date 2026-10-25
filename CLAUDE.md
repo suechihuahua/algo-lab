@@ -31,12 +31,16 @@ work until I say exams are done.
 Quiz 1 algorithms:
 - [x] Insertion sort (experiment + plot done too)
 - [x] Merge sort (mid = lo + (hi−lo)/2, ties taken from the left)
-- [ ] Quicksort ← in progress. Lecture = Strategy 1 (Lomuto): pivot swapped to A[end],
+- [x] Quicksort. Lecture = Strategy 1 (Lomuto): pivot swapped to A[end],
       j grows the "< p" part, `A[i] < p` strict. Default pivot = last element (matches
       the notes' worked tree). Recurse on [lo, mid−1] and [mid+1, hi]: the slide's
       Quicksort(A, mid, end) can infinite-loop.
-- [ ] Heaps (confirm 0- vs 1-based indexing)
-- [ ] Heapsort
+- [ ] Heaps ← in progress. Conventions from my notes (chosen 2026-10-25): 0-based,
+      children 2i+1 / 2i+2, parent (i−1)/2; max-heap; build bottom-up from n/2−1 down
+      to 0 with maxHeapify (sift-down); insert = add at end + sift-up; extract = last
+      element to root + maxHeapify. Code lives in `heaps/Heap.java`.
+- [ ] Heapsort (`sorting/HeapSort.java`, uses `heaps.Heap`; build max-heap, then swap
+      root with end, shrink, maxHeapify(0))
 - [ ] BFS (confirm neighbour order)
 - [ ] DFS
 - [ ] Dijkstra

@@ -9,8 +9,7 @@ import java.util.Scanner;
 
 public class Trace {
     // To add an algorithm: add its name here AND a case in run() below.
-        static final String[] ALGORITHMS = {"insertion", "merge", "quick"};
-
+    static final String[] ALGORITHMS = {"insertion", "merge", "quick", "heap"};
         public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -98,6 +97,7 @@ public class Trace {
             case "insertion" -> InsertionSort.sort(arr, stats, true);
             case "merge" -> MergeSort.sort(arr, stats, true);
             case "quick" -> QuickSort.sort(arr, stats, true);
+            case "heap" -> HeapSort.sort(arr, stats, true);
             default -> throw new IllegalArgumentException("unknown algorithm: " + name);
         }
     }

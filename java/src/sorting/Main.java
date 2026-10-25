@@ -22,6 +22,16 @@ public class Main {
         testMerge("empty",      new int[]{}, 0);
         testMerge("single",     new int[]{5}, 0);
         testMerge("duplicates", new int[]{3, 1, 3, 2, 1}, 7);
+        
+        System.out.println();
+
+        // heapsort
+        testHeap("sorted",     new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 27);
+        testHeap("reverse",    new int[]{8, 7, 6, 5, 4, 3, 2, 1}, 24);
+        testHeap("all equal",  new int[]{4, 4, 4, 4, 4}, 9);
+        testHeap("empty",      new int[]{}, 0);
+        testHeap("single",     new int[]{5}, 0);
+        testHeap("duplicates", new int[]{3, 1, 3, 2, 1}, 9);
     }
 
     static void test(String name, int[] input, long predicted) {
@@ -64,4 +74,18 @@ public class Main {
                 name, correct, actual, predicted,
                 actual == predicted ? "OK" : "MISMATCH");
     }
+        static void testHeap(String name, int[] input, long predicted) {
+        int[] expected = input.clone();
+        Arrays.sort(expected);
+
+        Stats stats = new Stats();
+        HeapSort.sort(input, stats);
+
+        boolean correct = Arrays.equals(input, expected);
+        long actual = stats.getComparisons();
+        System.out.printf("heap   %-10s correct=%b comparisons=%d predicted=%d %s%n",
+                name, correct, actual, predicted,
+                actual == predicted ? "OK" : "MISMATCH");
+    }
+    
 }
