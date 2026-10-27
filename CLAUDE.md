@@ -41,8 +41,13 @@ Quiz 1 algorithms:
       element to root + maxHeapify. Code lives in `heaps/Heap.java`.
 - [x] Heapsort (`sorting/HeapSort.java`, uses `heaps.Heap`; build max-heap, then swap
       root with end, shrink, maxHeapify(0))
-- [ ] BFS ← next (confirm neighbour order)
-- [ ] DFS
+- [ ] BFS ← next. Conventions from my notes (G2, checked 2026-10-25): vertices 0..n−1,
+      undirected adjacency list, neighbours visited in **increasing numeric order**;
+      queue; a vertex gets dist/par when **discovered** (enqueued), not when dequeued.
+      Notes' example graph: edges 0-1 0-3 0-4 1-2 1-5 2-3 3-4 4-5; BFS from 0 visits
+      0,1,3,4,2,5 (dist 0,1,1,1,2,2). Tut 3 has no traces, so the notes are the reference.
+- [ ] DFS (recursive, same numeric neighbour order; notes' example gives 0,1,2,3,4,5 with
+      back edges 0-3, 0-4, 1-5)
 - [ ] Dijkstra
 - [ ] Bellman-Ford
 - [ ] Prim
