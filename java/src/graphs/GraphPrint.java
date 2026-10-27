@@ -2,6 +2,7 @@ package graphs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.IntFunction;
 
 // Text pictures of a graph and of BFS/DFS results.
 public class GraphPrint {
@@ -58,11 +59,27 @@ public class GraphPrint {
     // +-- 1
     // |   `-- 2
     public static void tree(int[] par, int root) {
-        System.out.println(root);
-        printChildren(par, root, "");
+        tree(par, root, String::valueOf);
     }
 
-    private static void printChildren(int[] par, int v, String indent) {
+    // Same, but with custom vertex names (e.g. letters for the weighted examples).
+    public static void tree(int[] par, int root, IntFunction<String> label) {
+        System.out.println(label.apply(root));
+        printChildren(par, root, "", label);
+    }
+
+    // a: b(6) c(1)
+    public static void weighted(WeightedGraph g) {
+        for (int v = 0; v < g.size(); v++) {
+            StringBuilder sb = new StringBuilder(g.label(v) + ":");
+            for (WeightedGraph.Edge e : g.neighbours(v)) {
+                sb.append(' ').append(g.label(e.to())).append('(').append(e.weight()).append(')');
+            }
+            System.out.println(sb);
+        }
+    }
+
+    private static void printChildren(int[] par, int v, String indent, IntFunction<String> label) {
         List<Integer> children = new ArrayList<>();
         for (int u = 0; u < par.length; u++) {
             if (par[u] == v) {
@@ -72,8 +89,8 @@ public class GraphPrint {
         for (int k = 0; k < children.size(); k++) {
             boolean last = (k == children.size() - 1);
             int child = children.get(k);
-            System.out.println(indent + (last ? "`-- " : "+-- ") + child);
-            printChildren(par, child, indent + (last ? "    " : "|   "));
+            System.out.println(indent + (last ? "`-- " : "+-- ") + label.apply(child));
+            printChildren(par, child, indent + (last ? "    " : "|   "), label);
         }
     }
 }

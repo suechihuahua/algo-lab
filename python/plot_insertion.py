@@ -2,7 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("data/insertion.csv")
+df = pd.read_csv("data/sorting.csv")
+df = df[df["algorithm"] == "insertion"]       # sorting.Experiment now measures every sort
 
 # average the random trials for each n
 avg = df[df["input"] == "random"].groupby("n")["comparisons"].mean()
